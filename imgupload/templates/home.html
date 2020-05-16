@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Image_classifier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        img {
+            /*display: none;*/
+            margin-left: 400px;
+            /*margin-right: auto;*/
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Image Classifier</h1><br>
+            <p class="lead">This is a simple Dog vs Cat image classifier using CNN implemented in Keras</p>
+        </div>
+    </div>
+    <br>
+    <div style="margin-left: 90px;">
+        <form method="POST" enctype="multipart/form-data" action="predict">
+        {% csrf_token %}
+        <input type="file" name="testimg" value="Chose Image">
+        <input type="submit" value="Classify">
+        </form>
+    </div>
+    <img src={{filepath}} alt="alt" onerror="this.style.display='none'"/>
+    <span>Picture is of {{name}}</span>
+</body>
+
+</html>
